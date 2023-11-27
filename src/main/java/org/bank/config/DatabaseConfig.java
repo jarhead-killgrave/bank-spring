@@ -21,7 +21,7 @@ public class DatabaseConfig {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
                 .setScriptEncoding("UTF-8")
-                .addScript("create-tables.sql")
+                .addScript("database/create-tables.sql")
                 .build();
     }
 
