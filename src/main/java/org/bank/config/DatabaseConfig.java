@@ -2,6 +2,7 @@ package org.bank.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
@@ -17,7 +18,9 @@ import javax.sql.DataSource;
 public class DatabaseConfig {
 
     @Bean(destroyMethod = "shutdown")
+    @Profile("!test")
     public EmbeddedDatabase createDb() {
+        System.out.println("H2 Database created");
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
                 .setScriptEncoding("UTF-8")

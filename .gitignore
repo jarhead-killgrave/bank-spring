@@ -6,7 +6,7 @@ target/
 ### IntelliJ IDEA ###
 .idea/
 
-Bank.iml
+target/bank.iml
 
 ### Eclipse ###
 .apt_generated

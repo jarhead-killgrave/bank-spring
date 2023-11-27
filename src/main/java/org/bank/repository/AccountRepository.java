@@ -41,7 +41,7 @@ public class AccountRepository {
         }
     }
 
-    public void findAllAccounts() {
+    public List<Account> findAllAccounts() {
         List<Account> accounts = jdbcTemplate.query(
                 "SELECT * FROM accounts",
                 (rs, rowNum) -> new Account(
@@ -52,6 +52,7 @@ public class AccountRepository {
 
         System.out.println("Accounts: ");
         accounts.forEach(System.out::println);
+        return accounts;
     }
 
     @Transactional(rollbackFor = Exception.class)
